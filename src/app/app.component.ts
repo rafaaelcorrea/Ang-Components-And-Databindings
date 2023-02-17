@@ -23,8 +23,11 @@ export class AppComponent {
       name: blueprintData.serverName,
       content: blueprintData.serverContent
       
-    });
-  
+    }); 
+  }
+
+  ngChangeFirst(){
+    this.serverElements[0].name ='Changed';
   }
 
 }

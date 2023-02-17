@@ -5,9 +5,18 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <button (click)="ngChangeFirst()" class="btn btn-primary">Change First Element</button>
       <!--Adding a custom property of server element component-->
-      <app-sever-element *ngFor="let serverElement of serverElements"
-      [srvElement]="serverElement"></app-sever-element>
+      <app-sever-element  *ngFor="let serverElement of serverElements"
+      [srvElement]="serverElement"
+      [name]="serverElement.name">
+      <!--The content of tag "P" is show though of ng-content direcitve in server 
+        element component-->
+        <p>   
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content }}</em>
+        </p>
+    </app-sever-element>
     </div>
   </div>
 </div>

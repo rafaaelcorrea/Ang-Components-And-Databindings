@@ -2,16 +2,23 @@
     <div class="col-xs-12">
       <p>Add new Servers or blueprints!</p>
       <label>Server Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerName">
-      
+      <!--<input type="text" class="form-control" [(ngModel)]="newServerName">-->
+
+       <!-- Input using a Local Reference . ( like a type of id on "#..." )
+      Note: The Local Reference onlt used localy. He doesn't used out of local -->
+      <input type="text" class="form-control" #serverNameInput> <!-- <-- Local Reference -->
+
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+      <!--<input type="text" class="form-control" [(ngModel)]="newServerContent">-->
+      <!--Local Reference will used with View Child.-->
+      <input type="text" class="form-control" #serverContentInput>
       <br>
+      <!-- The methods will call local referece in arguments -->
       <button
         class="btn btn-primary"
-        (click)="onAddServer()">Add Server</button>
+        (click)="onAddServer(serverNameInput)">Add Server</button>
       <button
         class="btn btn-primary"
-        (click)="onAddBlueprint()">Add Server Blueprint</button>
+        (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
     </div>
   </div>
